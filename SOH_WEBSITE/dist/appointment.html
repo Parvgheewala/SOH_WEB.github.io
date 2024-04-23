@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appointment</title>
     <link rel="stylesheet" href="style.css">
-    <title>About us Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-slate-900">
     <!-- nav bar starts -->
@@ -40,51 +39,42 @@
         
     </nav>
     <!-- nav bar ends -->
-    <!-- OUR STAFF -->
+    <!-- appointment strats here -->
     <div class="flex flex-col items-center text-center mt-12">
-        <h1 class="text-3xl md:text-4xl font-bold text-indigo-500 mb-2">Our Staff</h1>
+        <h1 class="text-3xl md:text-4xl font-bold text-indigo-500 mb-2" id="header1"></h1>
         <div class="w-36 h-1 bg-yellow-300 rounded-full mb-4"></div>
     </div>
-<div class="content-center ">
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center p-10">
-        <div class="max-w-sm bg-white rounded-lg overflow-hidden shadow-md">
-            <img class="w-full" src="https://images.pexels.com/photos/18955726/pexels-photo-18955726/free-photo-of-man-riding-on-skateboard-in-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Dr. Rupesh Gheewala">
-            <div class="p-6">
-                <div class="font-semibold text-xl text-indigo-500 mb-2">Dr. Rupesh Gheewala</div>
-                <p class="text-gray-700 text-base">MBBS, MS-ORTHOPEDIC</p>
+    <div class="flex justify-center items-center h-screen" id="box">
+        <div class="bg-white shadow-md rounded-md p-8 max-w-sm w-full" id="box2">
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="problem">
+                    Problem
+                </label>
+                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="problem" placeholder="Enter the problem"></textarea>
             </div>
-        </div>
-        
-        <div class="max-w-sm bg-white rounded-lg overflow-hidden shadow-md">
-            <img class="w-full" src="https://images.pexels.com/photos/21293995/pexels-photo-21293995/free-photo-of-a-close-up-of-a-cherry-blossom-tree.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Chaitali Gheewala">
-            <div class="p-6">
-                <div class="font-semibold text-xl text-indigo-500 mb-2">Chaitali Gheewala</div>
-                <p class="text-gray-700 text-base">D. Pharm</p>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="date">
+                    Date
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="date" type="date">
             </div>
-        </div>
-        <!-- Repeat staff cards as needed -->
-        
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center p-10">
-        <div class="max-w-sm bg-white rounded-lg overflow-hidden shadow-md">
-            <img class="w-full" src="https://images.pexels.com/photos/18955726/pexels-photo-18955726/free-photo-of-man-riding-on-skateboard-in-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Dr. Rupesh Gheewala">
-            <div class="p-6">
-                <div class="font-semibold text-xl text-indigo-500 mb-2">Dr. Rupesh Gheewala</div>
-                <p class="text-gray-700 text-base">MBBS, MS-ORTHOPEDIC</p>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="time">
+                    Time
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="time" type="time">
             </div>
-        </div>
-        
-        <div class="max-w-sm bg-white rounded-lg overflow-hidden shadow-md">
-            <img class="w-full" src="https://images.pexels.com/photos/21293995/pexels-photo-21293995/free-photo-of-a-close-up-of-a-cherry-blossom-tree.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Chaitali Gheewala">
-            <div class="p-6">
-                <div class="font-semibold text-xl text-indigo-500 mb-2">Chaitali Gheewala</div>
-                <p class="text-gray-700 text-base">D. Pharm</p>
+            <div class="flex justify-between mb-6">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" id="sub">
+                    Submit
+                </button>
             </div>
         </div>
     </div>
+    
+    <!-- appointment ends here -->
 </body>
-    <script>
+<script>
     let button = document.getElementById("slidebar_button")
     let flag = true
     button.addEventListener('click',()=>{
@@ -97,5 +87,12 @@
         }
         
     },true)
+    let sub = document.getElementById('sub')
+    sub.addEventListener('click',(e)=>{
+        e.preventDefault()
+        alert('appointment requested. check your email for mor information')
+    })
+    let user = localStorage.getItem('textValue')
+    document.getElementById('header1').innerHTML= `Welcome ${user}`
 </script>
 </html>

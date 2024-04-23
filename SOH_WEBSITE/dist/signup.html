@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-900">
+    <!-- nav bar starts -->
+    <nav>
+        <div class="sticky top-0 w-full h-14 bg-indigo-200 flex justify-between items-center px-4 md:px-4">
+            <div class="text-xl text-indigo-600 font-bold">
+            Sai Orthopedic Hospital
+            </div>
+            <ul class="md:flex hidden font-semibold">
+                <li class="mx-[10px] cursor-pointer"> <a href="./index.html">Home</a> </li>
+                <li class="mx-[10px] cursor-pointer"> <a href="./aboutus.html">About us</a>  </li>
+                <li class="mx-[10px] cursor-pointer"><a href="./login.html">Appointment</a></li>
+            </ul>
+            <div class="hidden md:block px-2 py-2 text-white bg-indigo-700 rounded font-bold cursor-pointer"><a href="./login.html">login/SignUp</a> </div>
+            <div class="md:hidden">
+                <button id="slidebar_button" class="text-4xl">&#8801</button>
+            </div>
+        </div> 
+        <div id="slidebar" class="md:hidden" style="display: none;">
+            <div  class=" w-full h-14 bg-indigo-200  justify-between items-center px-4 md:px-4">
+                <ul class="my-4 flex font-semibold font-white">
+                    <li class="mx-[10px] cursor-pointer"> <a href="./index.html">Home</a> </li>
+                    <li class="mx-[10px] cursor-pointer"> <a href="./aboutus.html">About us</a>  </li>
+                    <li class="mx-[10px] cursor-pointer">Appointment</li>
+                    <li>
+                        <div class=" text-white bg-indigo-700 rounded font-bold cursor-pointer"><a href="./login.html">login/SignUp</a> </div>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+        
+    </nav>
+    <!-- nav bar ends here -->
+
+    <!-- sign up block starts here -->
+    <div class="bg-gray-100 flex justify-center items-center h-screen" id="box">
+        <div class="bg-white shadow-md rounded-md p-8 max-w-sm w-full">
+            <div class="mb-6">
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="userName" id="user">
+                        Username
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="useName" type="text" placeholder="Username">
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="numericInput">
+                    Phone number
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="numericInput" type="number" placeholder="xxxxxxxxxx">
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="emailInput">
+                    Email
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="emailInput" type="email" placeholder="example@example.com">
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="passwordInput">
+                    Password
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="passwordInput" type="password" placeholder="********">
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="repeatPasswordInput">
+                    Repeat Password
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="repeatPasswordInput" type="password" placeholder="********">
+            </div>
+            <div class="flex justify-center">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" id="sub">
+                    <a href="./login.html">
+                        Submit
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- sign up block ends here -->
+</body>
+<script>
+    let button = document.getElementById("slidebar_button")
+    let flag = true
+    button.addEventListener('click',()=>{
+        if (flag) {
+            document.getElementById("slidebar").style.display = "block"
+            flag = false
+        } else {
+            document.getElementById("slidebar").style.display = "none" 
+            flag = true
+        }
+        
+    },true) 
+    let submit =   document.getElementById("sub")
+    submit.addEventListener('click',()=>{
+        let pass1 = document.getElementById("passwordInput").value
+        let pass2 = document.getElementById("repeatPasswordInput").value
+        let user = document.getElementById('user').value 
+        if (pass1 !== pass2) {
+            alert("please enter the same password")
+        }
+        else{
+            alert("you are signed up Please login to book appointment")
+        }
+        
+    })
+</script>
+</html>

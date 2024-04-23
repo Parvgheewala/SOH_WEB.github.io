@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            width: 100vw;
+            padding: 100px;
+        }
+    </style>
 </head>
 <body class="bg-slate-900">
     <!-- nav bar starts -->
@@ -39,6 +49,38 @@
         
     </nav>
     <!-- nav bar ends -->
+
+    <!-- login and sign up -->
+    <div class=" flex justify-center items-center h-screen rounded-sm" id="box">
+        <div class="bg-white shadow-md rounded-md p-8 max-w-sm w-full">
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="username" id ="User">
+                    Username
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+            </div>
+            <div class="mb-6 relative">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    Password
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="********">
+                <span class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer text-gray-400 hover:text-gray-600 mu-2" id="togglePassword">Show</span>
+            </div>
+            <div class="flex justify-evenly mb-6">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" id="SignIn">
+                    Sign In
+                </button>
+                <button class="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded focus:outline-none hover:cursor-pointer focus:shadow-outline" type="button">
+                    <a href="./signup.html">
+                        Sign Up
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- login and sign up ends-->
+    
     
 </body>
 <script>
@@ -54,5 +96,32 @@
         }
         
     },true)
+
+    const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function (e) {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.textContent = type === 'password' ? 'Show' : 'Hide';
+        });
+    
+        const SIBtn = document.getElementById("SignIn");
+    SIBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        let user = document.getElementById('username').value; 
+        if (user !== 'admin') {
+            document.location.href = "./appointment.html";
+            if (user.length == 0) {
+                localStorage.setItem("textValue","User")
+            } else {
+                localStorage.setItem('textValue',user)
+            }
+        } else {
+            document.location.href = "./admin.html";
+            
+        }
+    }, true);
+
 </script>
 </html>
